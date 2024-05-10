@@ -5,7 +5,7 @@ Based on https://sease.io/2023/01/apache-solr-neural-search-tutorial.html
 ## Setup
 
 1. `docker compose up solr`
-1. Create a Type for dense vectors
+2. Create a Type for dense vectors
 
 ```
 curl -X POST -H 'Content-type:application/json' --data-binary '{
@@ -18,7 +18,7 @@ curl -X POST -H 'Content-type:application/json' --data-binary '{
 }' http://localhost:8983/api/cores/blacklight-core/schema
 ```
 
-1. Create a dynamic field
+3. Create a dynamic field
 
 ```
 curl -X POST -H 'Content-type:application/json' --data-binary '{
@@ -31,13 +31,13 @@ curl -X POST -H 'Content-type:application/json' --data-binary '{
 }' http://localhost:8983/api/cores/blacklight-core/schema
 ```
 
-1. Add data
+4. Add data
 
 ```
 docker compose run --rm solr solr post -url "http://solr:8983/solr/blacklight-core/update" /mydata/data.json
 ```
 
-1. Query Data
+5. Query Data
 
 There is a shell script that will allow us to find similar data by specifying a row from `mydata/data.json`
 
