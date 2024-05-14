@@ -35,6 +35,8 @@ class CatalogController < ApplicationController
       rows: 10
     }
 
+    config.http_method = :post
+
     # solr path which will be added to solr base url before the other solr params.
     # config.solr_path = 'select'
     #config.document_solr_path = 'get'
@@ -134,7 +136,7 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
     config.add_index_field 'title', label: 'Title'
-    config.add_index_field 'abstract', label: 'Title'
+    config.add_index_field 'abstract', label: 'Abstract'
     # config.add_index_field 'author_tsim', label: 'Author'
     # config.add_index_field 'author_vern_ssim', label: 'Author'
     # config.add_index_field 'format', label: 'Format'
